@@ -3,28 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TODO_list.Models;
 
 namespace TODO_list.Controllers
 {
     public class HomeController : Controller
     {
+        static List<ToDo> toDoItems = new List<ToDo>();        
+
         public ActionResult Index()
-        {
+        {            
+            return View(toDoItems);
+        }
+
+        [HttpGet]
+        public ActionResult Create()
+        {            
             return View();
         }
 
-        public ActionResult About()
+        [HttpPost]
+        public ActionResult Create(ToDo toDo)
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            toDoItems.Add(toDo);
+            
+            return RedirectToAction("Index", toDoItems);
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }
