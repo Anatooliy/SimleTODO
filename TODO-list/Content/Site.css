@@ -22,3 +22,41 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.todo-wrap-main {
+    height: 85vh;
+    padding-top: 35px;
+}
+
+.todo-wrap {
+    height: 85vh;
+}
+
+.todo-block {
+    border: 1px solid #DCDCDC;
+    border-radius: 5px;
+}
+
+.todo-title {
+    background-color: #dcdcdc;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.todo-item {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #cdcdcd;
+}
+
+.todo-item:last-child{
+    border-bottom:none;
+}
+
+.dl-horizontal dt{
+    text-align: left!important;
+}
+
+.action-btn{
+    margin-bottom: 25px;
+}

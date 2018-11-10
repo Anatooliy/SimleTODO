@@ -3,30 +3,35 @@
 @{
     ViewBag.Title = "ToDo List";
 }
+<div class="row todo-wrap-main">    
+    <div class="col-md-8 col-md-push-2 todo-block">
+        <div class="row">
+            <div class="col-md-12 todo-title">
+                <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
+                    <b>@Html.DisplayNameFor(model => model.ToDoDescription)</b>
+                </div>
+                <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+                    @Html.ActionLink("Add", "Create")
+                </div>
+            </div>
 
-<h2>ToDo List</h2>
+            <div class="col-md-12 todo-body">
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-md-12 todo-item">
+                            <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
+                                @Html.DisplayFor(modelItem => item.ToDoDescription)
+                            </div>
+                            <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.Id })  | 
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ToDoDescription)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ToDoDescription)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new {  id=item.Id  }) |           
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
-
-</table>
+                                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
